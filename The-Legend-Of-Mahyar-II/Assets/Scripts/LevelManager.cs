@@ -11,16 +11,9 @@ public class LevelManager : MonoBehaviour
     // Happens at the start of the game
     private void Start ()
     {
-		if (autoLoadNextLevel <= 0)
-        {
-            Debug.Log("You need to pick a positive number");
-        }
-        else
-        {
-            // calls a function and runs it at the time
-            Invoke("LoadNextLevel", autoLoadNextLevel);
-        }
-	}
+        // calls a function and runs it at the time 
+        if (autoLoadNextLevel > 0) { Invoke("LoadNextLevel", autoLoadNextLevel); } 
+ 	}
 
     public void LoadLevel(string name)
     {
