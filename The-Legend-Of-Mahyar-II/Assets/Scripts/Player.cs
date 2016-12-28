@@ -5,6 +5,9 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     public Stats stat;
+    public List<string> damageSources;
+    public float movementSpeed;
+    public EdgeCollider2D swordCollider;
 
 
 	// Use this for initialization
