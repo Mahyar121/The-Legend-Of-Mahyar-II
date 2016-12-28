@@ -12,10 +12,7 @@ public class Stats
 
     public float CurrentVal
     {
-        get
-        {
-            return currentVal;
-        }
+        get { return currentVal; }
         set
         {
             this.currentVal = Mathf.Clamp(value, 0, MaxVal);
@@ -25,10 +22,7 @@ public class Stats
 
     public float MaxVal
     {
-        get
-        {
-            return maxVal;
-        }
+        get { return maxVal; }
         set
         {
             this.maxVal = value;
