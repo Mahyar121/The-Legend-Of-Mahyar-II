@@ -29,7 +29,7 @@ public abstract class Character : MonoBehaviour
     {
         facingRight = true;
         MyAnimator = GetComponent<Animator>();
-        healthStat.Initialize();
+        
 
 	}
 
