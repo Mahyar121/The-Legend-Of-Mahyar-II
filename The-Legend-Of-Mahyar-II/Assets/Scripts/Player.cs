@@ -10,6 +10,8 @@ public class Player : Character
     public event DeadEventHandler Dead;
     // Serializable variables
     public Transform[] groundPoints;
+    public Transform arrowPos;
+    public GameObject arrowPrefab;
     public LayerMask whatIsGround;
     public float jumpForce;
     public float groundRadius;
@@ -153,6 +155,7 @@ public class Player : Character
     {
         if (Input.GetKeyDown(KeyCode.Space) && !OnLadder) { MyAnimator.SetTrigger("jump"); }
         if (Input.GetKeyDown(KeyCode.Z)) { MyAnimator.SetTrigger("attack"); }
+        if (Input.GetKeyDown(KeyCode.X)) { MyAnimator.SetTrigger("shoot"); }
         if (Input.GetKeyDown(KeyCode.C)) { Use(); }
         if (Input.GetKeyDown(KeyCode.Escape))
         {
@@ -252,6 +255,21 @@ public class Player : Character
             HandleMovement(horizontal, vertical);
             Flip(horizontal);
 
+        }
+    }
+
+    public void ShootArrow()
+    {
+        if (facingRight)
+        {
+            GameObject temp = Instantiate(arrowPrefab, arrowPos.position, Quaternion.identity);
+            temp.GetComponent<Arrow>().InitializeArrowDirection(Vector3.right);
+
+        }
+        else
+        {
+            GameObject temp =  Instantiate(arrowPrefab, arrowPos.position, Quaternion.identity);
+            temp.GetComponent<Arrow>().InitializeArrowDirection(Vector3.left);
         }
     }
 }
